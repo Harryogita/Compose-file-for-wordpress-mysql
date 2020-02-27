@@ -12,8 +12,8 @@ services:
     environment:
         WORDPRESS_DB_HOST: mydatabase:3306
         WORDPRESS_DB_NAME: wordpress
-        WORDPRESS_DB_HOST: wordpress
-        WORDPRESS_DB_HOST: wordpress
+        WORDPRESS_DB_USER: wordpress
+        WORDPRESS_DB_PASSWORD: wordpress
     
    mydatabase:
      image: mysql:5.7
@@ -23,8 +23,8 @@ services:
         MYSQL_PASSWORD: wordpress
         MYSQL_USER: wordpress
         MYSQL_DATABASE: wordpress
-     Volumes:
+     volumes:
         - mydbvol:/var/lib/mysql
 
-   volumes:
+volumes:
         mydbvol: {}
