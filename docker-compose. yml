@@ -1,0 +1,30 @@
+version: '3.3'
+
+services:
+
+  myweb:
+    image: wordpress:latest
+    restart: always
+    ports:
+       - "8081:80"
+    depends_on:
+       - mydatabase
+    environment:
+        WORDPRESS_DB_HOST: mydatabase:3306
+        WORDPRESS_DB_NAME: wordpress
+        WORDPRESS_DB_HOST: wordpress
+        WORDPRESS_DB_HOST: wordpress
+    
+   mydatabase:
+     image: mysql:5.7
+     restart: always
+     environment:
+        MYSQL_ROOT_PASSWORD: harry123
+        MYSQL_PASSWORD: wordpress
+        MYSQL_USER: wordpress
+        MYSQL_DATABASE: wordpress
+     Volumes:
+        - mydbvol:/var/lib/mysql
+
+   volumes:
+        mydbvol: {}
